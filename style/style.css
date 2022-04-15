@@ -1,0 +1,280 @@
+* {
+    box-sizing: border-box;
+}
+
+p, ul, body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+button {
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    outline: none;
+    border: none;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    font-size: min(8vw, 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 3%;
+    background: #e3decb;
+}
+
+h1 {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+h1 .cell {
+    margin: 1px;
+    position: relative;
+    font-size: 35px;
+    height: 48px;
+    width: 60px;
+    padding-top: 6px;
+    align-items: center;
+    justify-content: center;
+}
+
+/*название игры*/
+
+.two {
+    background: linear-gradient(to right, #b1f130, #0be8ae);
+    border: dashed 0.5px #a8e52e;
+    animation: gradient 5s ease infinite;
+}
+
+.zero {
+    background: linear-gradient(to right, #0be8ae, #25aceb);
+    border: dashed 0.5px #0adaa3;
+    animation: gradient 6s ease infinite;
+}
+
+.four {
+    background: linear-gradient(to right, #25aceb, #ee21e8);
+    border: dashed 0.5px #1da1de;
+    animation: gradient 5s ease infinite;
+}
+
+.eight {
+    background: linear-gradient(to right, #ee21e8, #e11650);
+    border: dashed 0.5px #df1fd9;
+    animation: gradient 6s ease infinite;
+}
+
+.two, .zero, .four, .eight {
+    font-size: 50px;
+    height: 85px;
+    padding-top: 15px;
+    border-radius: 8px;
+    box-shadow: 1px 16px 17px 1px rgba(34, 60, 80, 0.32);
+    
+}
+
+/*информаци про игру*/
+
+.game-intro {
+    margin-right: 55px;
+    margin-bottom: 5px;
+    text-align: justify;
+    font-size: 15px;
+    display: inline-block;
+    position: relative;
+}
+
+.back-button {
+    margin-right: 5px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 6px;
+    background-color: #b6b6b6;
+}
+
+.back-button:hover {
+	background: rgb(14,218,165);
+    background: linear-gradient(to right, #b1f130, #0be8ae, #25aceb, #ee21e8, #e11650);
+	color: #000b07;
+	box-shadow: linear-gradient(to left, #b1f130, #0be8ae, #25aceb, #ee21e8, #e11650);
+    opacity: 80%;
+}
+
+#settings {
+    padding-left: 30px;
+    height: 65px;
+    opacity: 100%;
+    box-sizing: 60px;
+    border-radius: 60%;
+    background: #e3decb;
+}
+
+/*блок с кнопками новой игры и рекордом текущего прохождения*/
+
+#container {
+    width: 90vw;
+    max-width: 500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template:
+    "score restart" 1.7em
+    "list list" auto
+    "title records" auto
+    / 56% 40%;
+    gap: 1em 4%;
+}
+
+#score, #restart {
+    background: rgb(198, 192, 192);
+    font-weight: bold;
+}
+
+#score {
+    line-height: 1.8em;
+    border-radius: 0.1em;
+    grid-area: score;
+    border-top: 2px solid #b6b6b6;
+    border-left: 2px solid #b6b6b6;
+    border-right: 1px solid #b6b6b6;
+    border-bottom: 1px solid #b6b6b6;
+    text-transform: uppercase;
+}
+
+#restart {
+    font-size: 0.5em;
+    line-height: 3.6em;
+    border-radius: 0.2em;
+    grid-area: restart;
+    border-top: 2px solid #b6b6b6;
+    border-left: 2px solid #b6b6b6;
+    border-right: 1px solid #b6b6b6;
+    border-bottom: 1px solid #b6b6b6;
+}
+
+#restart:hover {
+	background: rgb(14,218,165);
+    background: linear-gradient(to right, #b1f130, #0be8ae, #25aceb, #ee21e8, #e11650);
+	color: #044328;
+	box-shadow: linear-gradient(to left, #b1f130, #0be8ae, #25aceb, #ee21e8, #e11650);
+}
+
+/*само поле*/
+
+#list {
+    background-image: url('../img/back.jpg');
+    opacity: 0.6;
+    backface-visibility: 0.5;
+    border-radius: 0.2em;
+    position: relative;
+    height: 90vw;
+    max-height: 500px;
+    grid-area: list;
+    border-collapse: collapse;
+    border: 2px solid #b6b6b6;
+    flex-direction: column;
+}
+
+.item {
+    color: rgb(244, 232, 232);
+    line-height: 1.8em;
+    border-radius: inherit;
+    transition: 0.25s linear;
+    position: absolute;
+    width: 15%;
+    height: 15%;
+}
+
+.n2 { background: rgb(233, 147, 72); box-shadow: 4px 25px 12px 1px rgba(34, 60, 80, 0.32); }
+.n4 { background: rgb(1, 121, 121); box-shadow: 4px 25px 12px 1px rgba(34, 60, 80, 0.32);}
+.n8 { background: rgb(211, 6, 116); box-shadow: 4px 25px 12px 1px rgba(34, 60, 80, 0.32);}
+.n16 { background: rgb(19, 143, 19); box-shadow: 4px 25px 12px 1px rgba(34, 60, 80, 0.32);}
+.n32 { background: rgb(246, 209, 0); box-shadow: 4px 25px 12px 1px rgba(34, 60, 80, 0.32);}
+.n64 { background: rgb(6, 101, 196); box-shadow: 4px 25px 12px 1px rgba(34, 60, 80, 0.32);}
+.n128 { background: rgb(234, 63, 1); box-shadow: 4px 25px 12px 1px rgba(34, 60, 80, 0.32);}
+.n256 { background: rgb(57, 1, 98); box-shadow: 4px 25px 12px 1px rgba(34, 60, 80, 0.32);}
+.n512 { background: rgb(111, 3, 3); box-shadow: 4px 25px 12px rgba(34, 60, 80, 0.32);}
+.n1024 {background: rgb(255, 15, 15); box-shadow: 4px 25px 12px 1px rgba(34, 60, 80, 0.32);}
+.n4096 {background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%); box-shadow: 4px 25px 12px 1px rgba(34, 60, 80, 0.32);
+}
+.n16, .n32, .n64 {
+    font-size: 0.9em;
+    line-height: 2em;
+}
+.n128, .n256, .n512 {
+    font-size: 0.8em;
+    line-height: 2.25em;
+}
+
+.n1024 {
+    font-size: 0.66em;
+    line-height: 2.7em;
+}
+
+.n2048 {
+    font-size: 0.66em;
+    line-height: 2.7em;
+    background: rgb(34, 33, 33);
+}
+
+@media screen and (min-width: 525px) {
+    .item { line-height: 1.95em; }
+    .n16, .n32, .n64 { line-height: 2.2em; }
+    .n128, .n256, .n512 { line-height: 2.45em; }
+    .n1024, .n2048 { line-height: 3em; }
+}
+
+/*проиграли или выиграли*/
+
+#win {
+    line-height: min(90vw, 500px);
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 5s ease infinite;
+    border-radius: inherit;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#lose {
+    line-height: min(90vw, 500px);
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 5s ease infinite;
+    border-radius: inherit;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*о рекордах*/
+
+#title {
+    font-size: 0.5em;
+    font-weight: bold;
+    line-height: 3em;
+    grid-area: title;
+    align-self: start;
+}
+
+#records-table {
+    font-size: 0.6em;
+    line-height: 2.5em;
+    grid-area: records;
+}
