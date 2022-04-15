@@ -192,5 +192,4 @@ let g = new Game(
     document.getElementById('restart'),
     document.getElementById('score'),
     document.getElementById('win'),
-    document.getElementById('lose')
 );
