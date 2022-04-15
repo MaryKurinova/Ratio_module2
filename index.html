@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+<title>2048</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="icon" href="favicon.ico">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="game">
+    <h1>
+        <div class="cell two">2</div>
+        <div class="cell zero">0</div>
+        <div class="cell four">4</div>
+        <div class="cell eight">8</div>
+    </h1>
+</div>
+<div class="about-game">
+    <p class="game-intro">Join the numbers and <strong>get to the 2048 tile!</strong></p>
+    <a class="restart-button back-button disabled">Back</a></button>
+        <button id="settings"><img src=img/setting.png alt="Задана ширина и высота" width="40" height="40">
+    </div>
+<div id="container">
+    <p id="score">0</p>
+    <button id="restart">NEW GAME</button>
+    <ul id="list">
+    <p id="win" hidden><img src=img/you-win.png alt="Задана ширина и высота" width="60" height="60"></p>
+    <p id="lose" hidden><img src=img/you-lose.png alt="Задана ширина и высота" width="60" height="60"></p></p>
+    </ul>
+    <p id="title">RECORDS:</p>
+    <ul id="records-table"></ul>
+</div>
+<script src="js/index.js" defer></script>
+</body>
+</html
